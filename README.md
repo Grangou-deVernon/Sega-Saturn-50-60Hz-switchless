@@ -9,14 +9,14 @@ Quick summary of behavior
 - Long press on reset (≥ 2s): toggle 50Hz/60Hz on release without resetting the console.
 - LED signalling: one LED stays ON in 60Hz and BLINKS (2×/s) in 50Hz. Use one of the console "power" LEDs for mode signalling; both LEDs must be handled as described below.
 
-Wiring and photo references (order: PIC installation first)
-- Image 3: This photo shows the PIC installed. In this setup:
+Wiring and photo references
+- Chip install.jpg: This photo shows the PIC installed. In this setup:
   - PIC pin 1 is connected to 5V and PIC pin 8 is connected to GND; both are tied to the capacitor CE42 on the board.
   - PIC pin 5 is connected to pin 79 of IC14 (signal injection point for 50/60Hz).
   - BEFORE connecting the PIC to pin 79 of IC14, you MUST disconnect pin 79 from the motherboard: carefully lift the IC14 pin 79 from its pad (use a very thin blade like an X‑Acto and a soldering iron) so the PIC drives the signal alone. This step requires a steady hand and proper ESD/soldering precautions.
 
-- Image 1: This photo shows the reset wire that must be CUT so you can insert the PIC lines for pin 6 and pin 7. The wires you add use two distinct colours to make wiring clear — follow the colour code you used (the photo shows which colour goes where). You will connect the two reset wire ends to the PIC so the PIC can detect presses and generate/reset signals on its GP0/GPIO pins (see firmware pin mapping).
-- Image 2: This photo shows the LED modification. The wire coming from the PIC pin 3 is routed to the original LED. You must add a 220 Ω resistor in series with the original LED as shown. IMPORTANT: you must cut the PCB trace that connects the two power LEDs on the console so they are independent before wiring the PIC LED output. This prevents the LEDs from interfering with each other when the PIC drives one LED to indicate mode.
+- Reset.jpg: This photo shows the reset wire that must be CUT so you can insert the PIC lines for pin 6 and pin 7. The wires you add use two distinct colours to make wiring clear — follow the colour code you used (the photo shows which colour goes where). You will connect the two reset wire ends to the PIC so the PIC can detect presses and generate/reset signals on its GP0/GPIO pins (see firmware pin mapping).
+- LED.jpg: This photo shows the LED modification. The wire coming from the PIC pin 3 is routed to the original LED. You must add a 220 Ω resistor in series with the original LED as shown. IMPORTANT: you must cut the PCB trace that connects the two power LEDs on the console so they are independent before wiring the PIC LED output. This prevents the LEDs from interfering with each other when the PIC drives one LED to indicate mode.
 
 Hardware summary (wires)
 - 5V (Vcc) — PIC pin 1
@@ -44,14 +44,14 @@ Résumé comportement
 - Appui long sur reset (≥ 2s) : bascule 50Hz/60Hz au relâchement sans reset.
 - Indication par LED : une LED reste allumée en 60Hz et CLIGNOTE (2×/s) en 50Hz. Utiliser l'une des LED "power" existantes pour l'indication ; les deux LED doivent être traitées comme expliqué ci‑dessous.
 
-Câblage et références des photos (ordre: installation de la puce en premier)
-- Image 3 : montre la puce installée. Dans cette configuration :
+Câblage et références des photos
+- chip install.jpg : montre la puce installée. Dans cette configuration :
   - Pin 1 du PIC = 5V et pin 8 = GND ; ces lignes sont raccordées au condensateur CE42.
   - Pin 5 du PIC est raccordée à la pin 79 de IC14 (point d'injection du signal 50/60Hz).
   - AVANT de connecter le PIC sur la pin 79 du IC14, il FAUT d'abord déconnecter la pin 79 du IC14 de la carte mère : soulever délicatement la broche 79 du IC14 à l'aide d'une lame très fine (type X‑Acto) et d'un fer à souder afin qu'elle ne soit plus reliée au routage de la carte. Cette opération demande de la précision et il faut respecter les règles de soudure et d'ESD.
 
-- Image 1 : montre le fil du reset à COUPER pour insérer les lignes vers les pins 6 et 7 de la puce. Les fils ajoutés ont deux couleurs pour distinguer les connexions — suis la convention de couleurs que tu as utilisée (la photo montre l'affectation). Tu raccorderas les deux extrémités du fil reset au PIC pour que le PIC détecte les appuis et pilote les reset via ses broches GP0/GPIO (voir mappage dans le firmware).
-- Image 2 : montre la modification de la LED. On voit le fil venant de la pin 3 de la puce relié à la LED d'origine. Il faut ajouter une résistance de 220 Ω en série avec la LED. IMPORTANT : il faut couper la piste sur le PCB qui relie les deux LED d'alimentation de la console afin qu'elles soient indépendantes avant de brancher la sortie du PIC. Cela évitera des interactions indésirables lorsque le PIC commande une LED.
+- reset.jpg : montre le fil du reset à COUPER pour insérer les lignes vers les pins 6 et 7 de la puce. Les fils ajoutés ont deux couleurs pour distinguer les connexions — suis la convention de couleurs que tu as utilisée (la photo montre l'affectation). Tu raccorderas les deux extrémités du fil reset au PIC pour que le PIC détecte les appuis et pilote les reset via ses broches GP0/GPIO (voir mappage dans le firmware).
+- LED.jpg : montre la modification de la LED. On voit le fil venant de la pin 3 de la puce relié à la LED d'origine. Il faut ajouter une résistance de 220 Ω en série avec la LED. IMPORTANT : il faut couper la piste sur le PCB qui relie les deux LED d'alimentation de la console afin qu'elles soient indépendantes avant de brancher la sortie du PIC. Cela évitera des interactions indésirables lorsque le PIC commande une LED.
 
 Résumé des fils
 - 5V (Vcc) — pin 1 du PIC
@@ -64,5 +64,5 @@ Résistance LED
 - Utiliser des résistances de 220 Ω en série avec chaque LED réutilisée.
 
 Fichiers 
-- images/ — photos d'installation (saturn_va0_install_1.jpg, ...)
-- firmware/ — source (pic12f629.asm ou pic12f629.c) et le pic12f629.hex
+- images/ — photos d'installation (chip install.jpg, ...)
+- firmware/ — source (pic12f629.asm) et le pic12f629.hex
