@@ -1,6 +1,7 @@
 # Switchless 50/60Hz mod for Sega Saturn (PIC12F629)
 
-English
+English:
+
 This repository documents a small "switchless" modification for the Sega Saturn that allows toggling between 50Hz and 60Hz using the reset button. The implementation uses a PIC12F629 microcontroller. Below are extra installation details illustrated by the provided photos.
 
 Quick summary of behavior
@@ -34,7 +35,8 @@ Repository folders
 
 ---
 
-Français
+Français :
+
 Ce dépôt décrit une modification "switchless" pour la Sega Saturn permettant de basculer entre 50Hz et 60Hz avec le bouton reset. La modification utilise un PIC12F629. Voici les précisions d'installation illustrées par les photos fournies.
 
 Résumé comportement
